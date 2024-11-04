@@ -2,18 +2,14 @@ const posts = require('../data/db.js')
 
 function index(req, res){
     
-    res.json({
-        const ulEl = document.querySelector('.ul');
-        data: posts.forEach(post => {
-            const ulEl = document.querySelector('.ul');
-            const markup = `
-            <li>${post}</li>
-            `
-            ulEl.innerHTML += markup
-        })
-       
-
-    })
+    let markup = ''
+    posts.forEach(post => {
+        const { title, slug, content, image, tags } = post;
+        return markup += `
+            <li>${title}</li>
+        `
+    });
+    return res.send(`${markup}`)
 }
 
 function show  (req,res)  {
