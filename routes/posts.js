@@ -6,4 +6,6 @@ router.get('/', postsController.index)
 
 router.get('/:slug', postsController.show)
 
+router.get('/:tags', postsController.filterTags)
+
 module.exports = router
