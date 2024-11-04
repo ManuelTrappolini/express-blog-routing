@@ -47,11 +47,11 @@ const store = (req,res) => {
     console.log(req.body);
     
     const post = {
-        title: req.body.title,
-		slug: req.body.slug,
-        content: req.body.content,
-        image: req.body.image,
-        tags: req.body.tags
+        title:req.body.title,
+		slug:req.body.slug,
+        content:req.body.content,
+        image:req.body.image,
+        tags:req.body.tags,
     }
     posts.push(post)
     res.json({
