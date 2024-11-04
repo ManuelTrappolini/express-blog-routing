@@ -1,9 +1,18 @@
 const posts = require('../data/db.js')
 
 function index(req, res){
+    
     res.json({
-        data:posts,
-        count:posts.length
+        const ulEl = document.querySelector('.ul');
+        data: posts.forEach(post => {
+            const ulEl = document.querySelector('.ul');
+            const markup = `
+            <li>${post}</li>
+            `
+            ulEl.innerHTML += markup
+        })
+       
+
     })
 }
 
