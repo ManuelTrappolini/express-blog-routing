@@ -11,16 +11,19 @@ Aggiungi il metodo store per la creazione di un nuovo post */
 
 const express = require('express')
 const app = express();
+const PostsRouter = require('./routes/posts.js')
 const HOST = 'http://127.0.0.1';
 const PORT = 3009;
-const postsController = require('./Controllers/postsController.js')
 app.use(express.static('public'))
+
 
 app.listen(PORT,() =>{
     console.log(`Use this link ${HOST}:${PORT}`);
     
 })
 
-app.get('/', postsController.index)
+app.get('/',(req,res) =>{
+    res.send('<h1>Benvenuto nel mio Blog!</h1>')
+})
 
-app.get('/posts/:slug', postsController.show)
+app.use('/posts', PostsRouter)
