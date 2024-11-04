@@ -11,6 +11,12 @@ function index(req, res){
     });
     return res.send(`${markup}`)
 }
+function showPosts(req, res){
+    res.json({
+        data:posts,
+        count:posts.length
+    })
+}
 
 function show  (req,res)  {
     const post = posts.find(post => post.slug === req.params.slug);
@@ -36,9 +42,30 @@ function filterTags  (req,res)  {
     })
 }
 
+const store = (req,res) => {
+    console.log(req);
+    console.log(req.body);
+    
+    const post = {
+        title: req.body.title,
+		slug: req.body.slug,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    }
+    posts.push(post)
+    res.json({
+        status:201,
+        data: posts,
+        counter: posts.length
+    })
+}
+
 module.exports = {
     index,
     show,
     filterTags,
+    store,
+    showPosts
 }
 

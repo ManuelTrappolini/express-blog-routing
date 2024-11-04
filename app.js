@@ -13,6 +13,7 @@ const express = require('express')
 const app = express();
 const PostsRouter = require('./routes/posts.js')
 const postsController = require('./Controllers/postsController.js')
+app.use(express.json())
 const HOST = 'http://127.0.0.1';
 const PORT = 3009;
 app.use(express.static('public'))
